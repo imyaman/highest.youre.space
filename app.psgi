@@ -2,8 +2,8 @@ use strict;
 use Dancer;
 
 get '/' => sub {
-    $hid=sprintf "%.2d", int(rand 7);
-    $url="http://www" . $hid . "youre.space/";
+    my $hid=sprintf "%.2d", int(rand 7);
+    my $url="http://www" . $hid . "youre.space/";
     redirect $url; 
 };
 
