@@ -5,10 +5,6 @@ use Dancer;
 
 get '/' => sub {
     template 'index.tt';
-
-#    my $hid=sprintf "%.2d", int(rand 5)+1;
-#    my $url="http://www" . $hid . ".youre.space/";
-#    redirect $url; 
 };
 
 get '/api/time' => sub {

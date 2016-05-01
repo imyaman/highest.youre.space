@@ -5,14 +5,13 @@
     <title>Perl과 웹 API 서비스</title>
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="https://milligram.github.io/css/milligram.min.css">
-    <link href='http://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/earlyaccess/notosanskr.css' rel='stylesheet' type='text/css'>
     <script src="http://code.jquery.com/jquery-2.2.3.min.js"></script>
     <style>
-         body { font-family: 'Noto Sans', sans-serif; }
+      :lang(ko) { font-family: 'Noto Sans KR', sans-serif; }
     </style>
-    <meta http-equiv="refresh" content="180;URL='http://go.ad2up.com/afu.php?id=464574'">
 </head>
-<body>
+<body lang="ko">
 
 <h1>Perl과 웹 API 서비스</h1>
 
@@ -36,7 +35,6 @@
 
 <h2>API 목록</h2>
 <p><a href="http://github.com/imyaman/highest.youre.space">http://github.com/imyaman/highest.youre.space</a>에서 확인해주십시오.</p>
-
 
 <h2>이용 예시</h2>
 
@@ -69,6 +67,10 @@ $(document).ready(function(){
     });
 });
 </pre>
+
+<h2>내 컴퓨터에서 실행하기</h2>
+<p>소스코드를 다운로드 받습니다. perl을 설치합니다. Dancer 모듈을 설치합니다. 아래 명령으로 실행합니다.<br />
+$ perl app.psgi</p>
 
 <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 <pre class="prettyprint"></pre>
