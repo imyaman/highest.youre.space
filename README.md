@@ -16,8 +16,10 @@ PHP, Java, Python, JavaScript의 유행에서 떨어져, 오래된 것으로 꾸
 ## 이용방법
 - http://highest.youre.space/ 참조
 - http://highest.youre.space/api/time
+- API 목록과 상세설명은 github에 추가합니다.
 
 ## 이용 예시
+
 ### curl
 ```
 $ curl -X GET -H 'Content-type: application/json' http://highest.youre.space/api/time <br />
