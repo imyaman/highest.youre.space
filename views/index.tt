@@ -54,7 +54,7 @@ $ curl -X GET -H 'Content-type: text/xml' http://highest.youre.space/api/time <b
 <script>
 $(document).ready(function(){
     $("#btnTime").click(function(){
-      $.get("http://imyaman.bekrage.net:3000/api/time", function(data, status){
+      $.get("http://highest.youre.space/api/time", function(data, status){
         $("#hereTime").append(data.time + "<br />");
       });
     });
