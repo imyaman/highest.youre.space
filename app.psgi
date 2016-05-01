@@ -18,8 +18,8 @@ get '/api/time' => sub {
 get '/api/clientip' => sub {
     headers 'Access-Control-Allow-Origin' => '*';
     my $ip;
-    if( $ENV{X_FORWARDED_FOR} ){
-      $ip = $ENV{X_FORWARDED_FOR};
+    if( $ENV{X-FORWARDED-FOR} ){
+      $ip = $ENV{X-FORWARDED-FOR};
     }else{
       $ip = $ENV{REMOTE_ADDR};
     }
