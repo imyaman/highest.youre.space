@@ -1,105 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <title>usergrid js example</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <title>Perl과 웹 API 서비스</title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="https://milligram.github.io/css/milligram.min.css">
     <link href='http://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
-    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script src="http://code.jquery.com/jquery-2.2.3.min.js"></script>
     <style>
          body { font-family: 'Noto Sans', sans-serif; }
     </style>
-    <meta http-equiv="refresh" content="30;URL='http://go.ad2up.com/afu.php?id=464574'">
+    <meta http-equiv="refresh" content="180;URL='http://go.ad2up.com/afu.php?id=464574'">
 </head>
 <body>
-<div data-role="page" id="mainpage">
-  <div data-role="header" data-position="fixed" data-tap-toggle="false" data-theme="a">
-    <h1 id="">usergrid js example</h1>
-  </div>
-  <div data-role="main" class="ui-content">
-  <h2>이게 뭔가요?</h2>
-  <p>BaaS(Backend as a Service)의 하나인 usergrid를 잘 쓰자는 취지에서 javascript 예제를 만들어보았습니다. 초보자를 위해 가능한 단순하게 만들었습니다.</p>
 
-  <h2><a href="https://api02.youre.space/svr42mp/baas.io/users">youre.space usergrid</a> 예제</h2>
-    <ul>
-    <li><a href="usergrid" rel="external">단순조회</a>
-    <li><a href="usergrid/index2.html" rel="external">조회+더보기</a></li>
-    <li><a href="usergrid/write.html" rel="external">쓰기</a></li>
-    </ul>
-데이터를 조회하는 부분. usergrid와 baas.io는 서로 비슷합니다.
-    <pre class="prettyprint">
-&lt;script src="js/usergrid.js"&gt;&lt;/script&gt;
-&lt;script&gt;
-$(document).ready(function() {
-    var client = new Usergrid.Client({
-        'URI':'https://api02.youre.space',
-        'orgName':'svr42mp', 
-        'appName':'baas.io',
-        //'token':baas_token
+<h1>Perl과 웹 API 서비스</h1>
+
+<h2>개요</h2>
+<p>PHP, Java, Python, JavaScript의 유행에서 떨어져, 오래된 것으로 꾸준히 하는 사람도 필요합니다. 바로 28년 넘게 발전해온 Perl 말입니다.<br />
+그 오래된 것을 새로 배우는 사람도 필요합니다. 사람들이 Perl을 접하게 만들고자 합니다.</p>
+
+<h2>목적</h2>
+<p>사람들이 Perl로 만들어진 서비스를 이용하고, 소스코드를 접하게 합니다.</p>
+
+<h2>세부내용</h2>
+<ul>
+<li>웹 API 서비스를 제공합니다.
+<li>돈 되지 않고, 보안에 문제 되지 않고, 그러면서 유용한 기능 또는 데이터를 제공합니다.
+<li>Perl과 Dancer를 이용하여 만듭니다.
+<li>소스코드를 공개합니다.
+</ul>
+
+<h2>소스코드</h2>
+<p><a href="http://github.com/imyaman/highest.youre.space">http://github.com/imyaman/highest.youre.space</a></p>
+
+
+<h2>이용 예시</h2>
+
+<h3>curl</h3>
+<pre class="prettyprint">
+$ curl -X GET -H 'Content-type: application/json' http://highest.youre.space/api/time <br />
+$ curl -X GET -H 'Content-type: text/html' http://highest.youre.space/api/time <br />
+$ curl -X GET -H 'Content-type: text/x-yaml' http://highest.youre.space/api/time <br />
+$ curl -X GET -H 'Content-type: text/xml' http://highest.youre.space/api/time <br />
+</pre>
+
+<h3>JavaScript</h3>
+<button id="btnTime">버튼을 클릭하면 시각을 확인하는 API를 호출합니다</button> <br />
+<span id="hereTime">Time is here, <br /></span>
+<script>
+$(document).ready(function(){
+    $("#btnTime").click(function(){
+      $.get("http://imyaman.bekrage.net:3000/api/time", function(data, status){
+        $("#hereTime").append(data.time + "<br />");
+      });
     });
-
-    var options = {
-        'client':client,
-        'endpoint':'comments',
-        'qs':{
-            'ql':'order by created DESC'
-        }
-    }
-
-    client.request(options, function (err, data) {
-      if(!err){
-          drawCommentsTable(data.entities);
-      }else{
-          console.log(err.toString());
-      }
-    });
-}
-    </pre>
-
-<center> <!-- -->
-<script type="text/javascript">
-  ( function() {
-    if (window.CHITIKA === undefined) { window.CHITIKA = { 'units' : [] }; };
-    var unit = {"calltype":"async[2]","publisher":"imyaman","width":320,"height":"auto","sid":"dance.youre.space","fluidH":true};
-    var placement_id = window.CHITIKA.units.length;
-    window.CHITIKA.units.push(unit);
-    document.write('<div id="chitikaAdBlock-' + placement_id + '"></div>');
-}());
-</script> <script type="text/javascript" src="//cdn.chitika.net/getads.js" async></script>
-</center> <!-- -->
-
-<center>
-<script type="text/javascript"> 
-clicksor_default_url = '';
-clicksor_banner_border = '#99CC33'; 
-clicksor_banner_ad_bg = '#FFFFFF';
-clicksor_banner_link_color = '#000000'; 
-clicksor_banner_text_color = '#666666';
-clicksor_layer_border_color = '';
-clicksor_layer_ad_bg = ''; 
-clicksor_layer_ad_link_color = '';
-clicksor_layer_ad_text_color = ''; 
-clicksor_text_link_bg = '';
-clicksor_text_link_color = ''; 
-clicksor_banner_text_banner = true;
-clicksor_banner_image_banner = true; 
-clicksor_enable_text_link = false;
-clicksor_enable_inter = false;
-clicksor_enable_adhere = false;
-clicksor_enable_pop = false; 
-clicksor_enable_layer_pop = false;
-clicksor_mobile_redirect = false;
-clicksor_default_url = 'http://creative.clicksor.com/pub_default_ads/330835_1/1_562543_7_d.htm';
+});
 </script>
-<script type="text/javascript" src="http://b.yu0123456.com/show.php?nid=1&amp;pid=330835&amp;adtype=7&amp;sid=588821"></script>
-</center>
+<pre class="prettyprint">
+$(document).ready(function(){
+    $("#btnTime").click(function(){
+      $.get("http://highest.youre.space/api/time", function(data, status){
+        $("#hereTime").append(data.time + "&lt;br /&gt;");
+      });
+    });
+});
+</pre>
 
-  </div>
-</div>
 <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 <pre class="prettyprint"></pre>
-<!-- script src="//go.mobtrks.com/notice.php?p=465962&interstitial=1"></script -->
 </body>
 </html>
