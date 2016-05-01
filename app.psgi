@@ -15,6 +15,15 @@ get '/api/time' => sub {
     return { time => $t };
 };
 
+get '/api/myenv' => sub {
+    headers 'Access-Control-Allow-Origin' => '*';
+    my ($myenv, $key);
+    for $key (keys %ENV){
+      $myenv .= $key . " : " . $ENV{$key} . "    " ;
+    }
+    return { myenv => $myenv };
+};
+
 get '/api/clientip' => sub {
     headers 'Access-Control-Allow-Origin' => '*';
     my $ip;
@@ -22,6 +31,7 @@ get '/api/clientip' => sub {
     if( $ip = $ENV{HTTP_FORWARDED_FOR} ){ goto HAVEIP; }
     if( $ip = $ENV{HTTP_X_FORWARDED_FOR} ){ goto HAVEIP; }
     if( $ip = $ENV{X_FORWARDED_FOR} ){ goto HAVEIP; }
+    if( $ip = $ENV{REMOTE_HOST} ){ goto HAVEIP; }
     if( $ip = $ENV{REMOTE_ADDR} ){ goto HAVEIP; }
 
 HAVEIP:
