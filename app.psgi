@@ -15,4 +15,11 @@ get '/api/time' => sub {
     return { time => $t };
 };
 
+get '/api/clientip' => sub {
+    headers 'Access-Control-Allow-Origin' => '*';
+
+    my $ip = $ENV{'REMOTE_ADDR'};
+    return { clientip => $ip };
+};
+
 dance;
