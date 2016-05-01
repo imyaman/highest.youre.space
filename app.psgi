@@ -18,7 +18,7 @@ get '/api/time' => sub {
 get '/api/clientip' => sub {
     headers 'Access-Control-Allow-Origin' => '*';
 
-    my $ip = $ENV{'REMOTE_ADDR'};
+    my $ip = $ENV{REMOTE_ADDR};
     return { clientip => $ip };
 };
 
