@@ -17,10 +17,21 @@ PHP, Java, Python, JavaScript의 유행에서 떨어져, 오래된 것으로 꾸
 - http://highest.youre.space/ 참조
 - http://highest.youre.space/api/time
 
-## 
+## 이용 예시
+### curl
 ```
 $ curl -X GET -H 'Content-type: application/json' http://highest.youre.space/api/time <br />
 $ curl -X GET -H 'Content-type: text/html' http://highest.youre.space/api/time <br />
 $ curl -X GET -H 'Content-type: text/x-yaml' http://highest.youre.space/api/time <br />
 $ curl -X GET -H 'Content-type: text/xml' http://highest.youre.space/api/time <br />
+```
+### JavaScript
+```
+$(document).ready(function(){
+    $("#btnTime").click(function(){
+      $.get("http://highest.youre.space/api/time", function(data, status){
+        $("#hereTime").append(data.time + "<br />");
+      });
+    });
+});
 ```
