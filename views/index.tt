@@ -72,6 +72,17 @@ $(document).ready(function(){
 <p>소스코드를 다운로드 받습니다. perl을 설치합니다. Dancer 모듈을 설치합니다. 아래 명령으로 실행합니다.<br />
 $ perl app.psgi</p>
 
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- highest -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6681966312873395"
+     data-ad-slot="6601002462"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
 <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 <pre class="prettyprint"></pre>
 </body>
