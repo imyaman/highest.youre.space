@@ -10,8 +10,8 @@
     <style>
       :lang(ko) { font-family: 'Noto Sans KR', sans-serif; }
     </style>
-</head>
-<body lang="ko">
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script>
 function checkmobile() {
   var check = false;
@@ -21,10 +21,15 @@ function checkmobile() {
 var ismobile = checkmobile();
 
   if(ismobile){
-    window.location="/mobile.html";
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-6681966312873395",
+      enable_page_level_ads: true
+    });
   }
 </script>
 
+</head>
+<body lang="ko">
 
 <h1>Perl과 웹 API 서비스</h1>
 
@@ -91,15 +96,14 @@ $(document).ready(function(){
 <p>소스코드를 다운로드 받습니다. perl을 설치합니다. Dancer 모듈을 설치합니다. 아래 명령으로 실행합니다.<br />
 $ perl app.psgi</p>
 
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- highest -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-6681966312873395"
-     data-ad-slot="6601002462"
-     data-ad-format="auto"></ins>
+
+<div id="desktopad"></div>
 <script>
-(adsbygoogle = window.adsbygoogle || []).push({});
+  if(ismobile){
+  }else{
+    $("#desktopad").append(' <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6681966312873395" data-ad-slot="6601002462" data-ad-format="auto"></ins> ');
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  }
 </script>
 
 <script>
