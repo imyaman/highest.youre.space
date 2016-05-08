@@ -23,6 +23,13 @@
 <div data-role="page" id="mainpage">
   <div data-role="header" data-position="fixed">
     <h1 id="">Perl과 웹 API 서비스</h1>
+    <div data-role="navbar">
+      <ul>
+        <li><a href="#list" data-icon="grid">API 목록</a></li>
+        <li><a href="#" data-icon="home" class="ui-btn-active">첫 페이지</a></li>
+        <li><a href="#search" data-icon="search">API 찾기</a></li>
+      </ul>
+    </div><!-- /navbar -->
   </div>
 
   <div data-role="main" class="ui-content">
@@ -95,15 +102,20 @@
   </div> <!-- ui-content -->
 
   <div data-role="footer" data-position="fixed">
-    <div data-role="navbar">
-      <ul>
-        <li><a href="#" data-icon="grid">Summary</a></li>
-        <li><a href="#" data-icon="star" class="ui-btn-active">Favs</a></li>
-        <li><a href="#" data-icon="gear">Setup</a></li>
-      </ul>
-    </div><!-- /navbar -->
   </div><!-- /footer -->
 </div> <!-- mainpage -->
+
+<div data-role="page" id="list">
+  <div data-role="main" class="ui-content">
+    <a href="#">Go to Main Page</a>
+  </div>
+</div>
+
+<div data-role="page" id="search">
+  <div data-role="main" class="ui-content">
+    <a href="#list">Go to List Page</a>
+  </div>
+</div>
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
