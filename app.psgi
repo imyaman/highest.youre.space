@@ -26,9 +26,9 @@ any ['get', 'post'] => '/api/base64decode' => sub {
     use MIME::Base64;
     use Encode;
     my $data = param 'data';
+# 이유는 모르겠는데, base64 인코딩의 URL을 무언가가 알아서 디코드합니다.
 # my $result = decode("UTF-8", decode_base64($data));
 # return { data => $data, result => $result };
-# 이유는 모르겠는데, base64 인코딩의 URL을 무언가가 알아서 디코드합니다.
     return { data => $data };
 };
 # USAGE
