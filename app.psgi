@@ -21,7 +21,7 @@ get '/api/clientip' => sub {
 };
 
 # USAGE
-# curl -X POST localhost:5000/api/urldecode -H 'Content-type: application/json' 
+# curl -X POST http://highest.youre.space/api/urldecode -H 'Content-type: application/json' 
 #      -d '{"url":"http://highest.youre.space/?q=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94"}'
 #{
 #   "url" : "http://highest.youre.space/?q=안녕하세요"
