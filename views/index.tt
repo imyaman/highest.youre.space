@@ -53,13 +53,13 @@ var ismobile = checkmobile();
 
 <h3>curl</h3>
 <pre class="prettyprint" style="font-size: small;">
-curl -X GET -H 'Content-type: application/json' \
+curl -X GET -H 'Accept: application/json' \
   http://highest.youre.space/api/time
-curl -X GET -H 'Content-type: text/html' \
+curl -X GET -H 'Accept: text/html' \
   http://highest.youre.space/api/time
-curl -X GET -H 'Content-type: text/x-yaml' \
+curl -X GET -H 'Accept: text/x-yaml' \
   http://highest.youre.space/api/time
-curl -X GET -H 'Content-type: text/xml' \
+curl -X GET -H 'Accept: text/xml' \
   http://highest.youre.space/api/time
 </pre>
 

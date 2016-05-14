@@ -9,7 +9,6 @@ get '/' => sub {
 
 get '/api/time' => sub {
     headers 'Access-Control-Allow-Origin' => '*';
-
     my ($sec, $min, $hour, $mday, $mon, $year, $wday, $yday, $isdst) = localtime();
     my $t = sprintf("%04d-%02d-%02dT%02d:%02d:%02dZ", $year+1900, $mon+1, $mday, $hour, $min, $sec);
     return { time => $t };
@@ -21,22 +20,27 @@ get '/api/clientip' => sub {
     return { clientip => $ip };
 };
 
-any ['get', 'post'] => '/api/base64decode' => sub {
-    headers 'Access-Control-Allow-Origin' => '*';
-    use MIME::Base64;
-    use Encode;
-    my $data = param 'data';
-# 이유는 모르겠는데, base64 인코딩의 URL을 무언가가 알아서 디코드합니다.
-# my $result = decode("UTF-8", decode_base64($data));
-# return { data => $data, result => $result };
-    return { data => $data };
-};
 # USAGE
-# curl http://highest.youre.space/api/base64decode?data=http://highest.youre.space/?data=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94%20%EA%B3%BD%EC%83%81%EC%9A%A9%EC%9E%85%EB%8B%88%EB%8B%A4.
+# curl -X POST localhost:5000/api/urldecode -H 'Content-type: application/json' 
+#      -d '{"url":"http://highest.youre.space/?q=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94"}'
 #{
-#   "data" : "http://highest.youre.space/?data=안녕하세요 곽상용입니다."
+#   "url" : "http://highest.youre.space/?q=안녕하세요"
 #}
+post '/api/urldecode' => sub {
+    headers 'Access-Control-Allow-Origin' => '*';
+    use Encode;
+    my $post = from_json(request->body);
+    my $url = urldecode($post->{url});
+    $url = decode("UTF-8", $url);
+    return { url => $url };
+};
 
+sub urldecode {
+    my $s = shift;
+    $s =~ s/\%([A-Fa-f0-9]{2})/pack('C', hex($1))/seg;
+    $s =~ s/\+/ /g;
+    return $s;
+}
 
 get '/api/myenv' => sub {
     headers 'Access-Control-Allow-Origin' => '*';
