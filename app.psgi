@@ -17,7 +17,13 @@ get '/api/time' => sub {
 get '/api/clientip' => sub {
     headers 'Access-Control-Allow-Origin' => '*';
     my $ip = request->address();
-    return { clientip => $ip };
+    my ($string, $key);
+    for $key (keys request->env()){
+      $string .= $key . ":" . request->env->{$key} . "    ";
+    }
+    my $remote_addr = request->env->{'REMOTE_ADDR'};
+    my $forwarded = request->env->{'X-Forwarded-For'};
+    return { clientip => $ip , remote_addr => $remote_addr, forwarded => $forwarded, env => $string };
 };
 
 # USAGE
