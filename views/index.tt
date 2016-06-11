@@ -21,7 +21,7 @@ function checkmobile() {
 var ismobile = checkmobile();
 
   if(ismobile){
-    window.location="/mobile.html";
+    window.location="/";
   }
 </script>
 
