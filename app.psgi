@@ -61,7 +61,7 @@ get '/api/allenv' => sub {
     for $key (keys request->env()){
       $string .= "\"$key\"" . ":" .  request->env->{$key} . "    ";
     }
-    return { $myenv };
+    return { $string };
 };
 
 dance;
