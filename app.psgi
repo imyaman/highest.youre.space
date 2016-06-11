@@ -22,7 +22,7 @@ get '/api/clientip' => sub {
       $string .= $key . ":" . request->env->{$key} . "    ";
     }
     my $remote_addr = request->env->{'REMOTE_ADDR'};
-    my $forwarded = request->env->{'X-Forwarded-For'};
+    my $forwarded = request->env->{'HTTP_X_FORWARDED_FOR'};
     return { clientip => $ip , remote_addr => $remote_addr, forwarded => $forwarded, env => $string };
 };
 
@@ -55,6 +55,15 @@ get '/api/myenv' => sub {
       $myenv .= $key . " : " . $ENV{$key} . "    " ;
     }
     return { myenv => $myenv };
+};
+
+get '/api/allenv' => sub {
+    headers 'Access-Control-Allow-Origin' => '*';
+    my ($string, $key);
+    for $key (keys request->env()){
+      $string .= "\"$key\"" . ":" .  request->env->{$key} . "    ";
+    }
+    return { $myenv };
 };
 
 dance;
