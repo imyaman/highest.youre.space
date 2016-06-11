@@ -22,10 +22,10 @@ PHP, Java, Python, JavaScript의 유행에서 떨어져, 오래된 것으로 꾸
 
 ### curl
 ```
-$ curl -X GET -H 'Content-type: application/json' http://highest.youre.space/api/time <br />
-$ curl -X GET -H 'Content-type: text/html' http://highest.youre.space/api/time <br />
-$ curl -X GET -H 'Content-type: text/x-yaml' http://highest.youre.space/api/time <br />
-$ curl -X GET -H 'Content-type: text/xml' http://highest.youre.space/api/time <br />
+$ curl -X GET -H 'Content-type: application/json' http://highest.youre.space/api/time
+$ curl -X GET -H 'Content-type: text/html' http://highest.youre.space/api/time
+$ curl -X GET -H 'Content-type: text/x-yaml' http://highest.youre.space/api/time
+$ curl -X GET -H 'Content-type: text/xml' http://highest.youre.space/api/time
 ```
 ### JavaScript
 ```
