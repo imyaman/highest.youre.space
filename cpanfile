@@ -1,1 +1,2 @@
-requires 'Plack', '1.0039';
+requires 'Plack';
+requires 'Dancer';
