@@ -1,8 +1,6 @@
 use strict;
 use Dancer;
 
-#set serializer => 'mutable';
-
 get '/' => sub {
     template 'index.tt';
 };
