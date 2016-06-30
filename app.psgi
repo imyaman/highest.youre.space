@@ -1,3 +1,5 @@
+#!/usr/bin/env perl
+
 use strict;
 use Dancer;
 
@@ -45,6 +47,15 @@ sub urldecode {
     $s =~ s/\+/ /g;
     return $s;
 }
+
+post '/api/md2html' => sub {
+    use Markdown;
+    headers 'Access-Control-Allow-Origin' => '*';
+    my $post = from_json(request->body);
+    my $md = $post->{md};
+    my $html = Markdown::Markdown($md);
+    return { html => $html } ;
+};
 
 get '/api/myenv' => sub {
     headers 'Access-Control-Allow-Origin' => '*';
