@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
     <meta charset="utf-8">
     <title>Perl과 웹 API 서비스</title>
@@ -11,7 +11,7 @@
       :lang(ko) { font-family: 'Noto Sans KR', sans-serif; }
     </style>
 </head>
-<body lang="ko">
+<body>
 <script>
 function checkmobile() {
   var check = false;
