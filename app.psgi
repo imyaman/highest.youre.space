@@ -73,6 +73,7 @@ post '/api/md2html1' => sub {
     headers 'Access-Control-Allow-Origin' => '*';
     my $post = from_json(request->body);
     my $md = $post->{md};
+    if($md){
         return { html => $md };
     }else{
         return { html => "error" };
