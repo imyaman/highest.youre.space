@@ -50,7 +50,6 @@ sub urldecode {
 
 my $GOT_READY;
 post '/api/md2html' => sub {
-    #use Markdown;
     BEGIN {
         eval {
             require Markdown;
@@ -60,10 +59,10 @@ post '/api/md2html' => sub {
     }
     headers 'Access-Control-Allow-Origin' => '*';
     if($GOT_READY){
-    my $post = from_json(request->body);
-    my $md = $post->{md};
-    my $html = Markdown::Markdown($md);
-    return { html => $html } ;
+        my $post = from_json(request->body);
+        my $md = $post->{md};
+        my $html = Markdown::Markdown($md);
+        return { html => $html } ;
     }else{
         return { html => "error" };
     }
