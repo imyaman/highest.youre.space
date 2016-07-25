@@ -50,19 +50,29 @@ sub urldecode {
 
 my $GOT_READY;
 post '/api/md2html' => sub {
-#    BEGIN {
-#        eval {
-#            require Markdown;
-#            Markdown->import();
-#            $GOT_READY=1 if $Markdown::VERSION eq "1.0.1";
-#        };
-#    }
-#    headers 'Access-Control-Allow-Origin' => '*';
+    BEGIN {
+        eval {
+            require Markdown;
+            Markdown->import();
+            $GOT_READY=1 if $Markdown::VERSION eq "1.0.1";
+        };
+    }
+    headers 'Access-Control-Allow-Origin' => '*';
     if($GOT_READY){
         my $post = from_json(request->body);
         my $md = $post->{md};
 #        my $html = Markdown::Markdown($md);
 #        return { html => $html } ;
+        return { html => $md };
+    }else{
+        return { html => "error" };
+    }
+};
+
+post '/api/md2html1' => sub {
+    headers 'Access-Control-Allow-Origin' => '*';
+    my $post = from_json(request->body);
+    my $md = $post->{md};
         return { html => $md };
     }else{
         return { html => "error" };
