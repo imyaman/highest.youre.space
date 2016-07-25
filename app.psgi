@@ -61,8 +61,9 @@ post '/api/md2html' => sub {
     if($GOT_READY){
         my $post = from_json(request->body);
         my $md = $post->{md};
-        my $html = Markdown::Markdown($md);
-        return { html => $html } ;
+#        my $html = Markdown::Markdown($md);
+#        return { html => $html } ;
+        return { html => $md };
     }else{
         return { html => "error" };
     }
