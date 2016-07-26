@@ -98,4 +98,9 @@ get '/api/allenv' => sub {
     return { $string };
 };
 
+get '/api/envinc' => sub {
+    headers 'Access-Control-Allow-Origin' => '*';
+    return { @INC };
+};
+
 dance;
