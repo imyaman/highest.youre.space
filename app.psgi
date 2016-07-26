@@ -100,7 +100,8 @@ get '/api/allenv' => sub {
 
 get '/api/envinc' => sub {
     headers 'Access-Control-Allow-Origin' => '*';
-    return { @INC };
+    my $myinc = join ',,,,', @INC;
+    return { $ENV{PWD} => $myinc };
 };
 
 dance;
