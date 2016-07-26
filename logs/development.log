@@ -21,3 +21,5 @@
 [17264] error @0.006627> [hit #2]request to POST /api/md2html crashed: Undefined subroutine &main::Markdown called at app.psgi line 55. in /usr/share/perl5/Dancer/Handler.pm l. 98
 [17264] error @0.002050> [hit #3]request to POST /api/md2html crashed: Undefined subroutine &main::Markdown called at app.psgi line 55. in /usr/share/perl5/Dancer/Handler.pm l. 98
 [18290] error @0.021491> [hit #2]request to POST /api/md2html crashed: Wide character in subroutine entry at /home/imyaman/websites/heroku_/highest/Markdown_1.0.1/Markdown.pm line 201. in /usr/share/perl5/Dancer/Handler.pm l. 98
+[454] error @0.009889> [hit #2]request to POST /api/md2html crashed: invalid character encountered while parsing JSON string, at character offset 14 (before "\rddddd"}") at (eval 115) line 161. in /usr/share/perl5/Dancer/Handler.pm l. 98
+[2027] error @0.001948> [hit #2]request to POST /api/md2html crashed: invalid character encountered while parsing JSON string, at character offset 14 (before "\r aaa"}") at (eval 115) line 161. in /usr/share/perl5/Dancer/Handler.pm l. 98
