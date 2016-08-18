@@ -95,6 +95,12 @@ $ perl app.psgi</p>
 <h2>세상에서 제일 좋은 집은?</h2>
 </div></a>
 
+<center>
+<div class="main_banner" id="main_banner1">
+  <script type="text/javascript"> var tad_conf = { targetId : 'main_banner1', clientId : 'MX00048A1', slotNo : 2 }; </script>
+  <script type="text/javascript" src="http://adddn.adotsolution.com/contents/sdk/js/tad.min.js"></script>
+</div>
+</center>
 <!-- ad starts -->                
 <center>
 <script type="text/javascript">
