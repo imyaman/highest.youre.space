@@ -1,2 +1,2 @@
 requires 'Plack';
-requires 'Dancer';
+requires 'Dancer2';

@@ -1,7 +1,7 @@
 #!/usr/bin/env perl
 
 use strict;
-use Dancer;
+use Dancer2;
 
 get '/' => sub {
     template 'index.tt';
