@@ -81,7 +81,7 @@ get '/api/allenv' => sub {
     headers 'Access-Control-Allow-Origin' => '*';
     my ($string, $key);
     for $key (keys request->env()){
-      $string .= "\"$key\"" . ":" .  request->env->{$key} . "    ";
+      $string .= "\"$key\"" . ":" .  request->env->{$key} . "    <br>\n";
     }
     return { $string };
 };
