@@ -26,6 +26,12 @@ get '/api/clientip' => sub {
     return { clientip => $ip , remote_addr => $remote_addr, forwarded => $forwarded };
 };
 
+get '/api/clientiponly' => sub {
+    headers 'Access-Control-Allow-Origin' => '*';
+    my $forwarded = request->env->{'HTTP_X_FORWARDED_FOR'};
+    return { forwarded => $forwarded };
+};
+
 # USAGE
 # curl -X POST http://highest.youre.space/api/urldecode -H 'Content-type: application/json' 
 #      -d '{"url":"http://highest.youre.space/?q=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94"}'
