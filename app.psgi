@@ -23,7 +23,7 @@ get '/api/clientip' => sub {
     }
     my $remote_addr = request->env->{'REMOTE_ADDR'};
     my $forwarded = request->env->{'HTTP_X_FORWARDED_FOR'};
-    return { clientip => $ip , remote_addr => $remote_addr, forwarded => $forwarded, env => $string };
+    return { clientip => $ip , remote_addr => $remote_addr, forwarded => $forwarded };
 };
 
 # USAGE
