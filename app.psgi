@@ -7,7 +7,7 @@ get '/' => sub {
     template 'index.tt';
 };
 
-get '/record' => sub {
+post '/record' => sub {
   header 'Content-Type' => 'application/json';
 #  return to_json { text => 'Hello World' };
   return '{ "version": "0.1.0", "sessionAttributes": {}, "response": { "outputSpeech": { "type": "SimpleSpeech", "values": { "type": "PlainText", "lang": "ko", "value": "You drunk a cup of water at 7 P.M." } }, "card": {}, "directives": [], "shouldEndSession": false } } ';
