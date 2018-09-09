@@ -2,6 +2,10 @@
 
 use strict;
 use Dancer;
+use POSIX qw(tzset);
+
+$ENV{TZ} = 'Asia/Seoul';
+tzset();
 
 get '/' => sub {
     template 'index.tt';
