@@ -3,6 +3,7 @@
 use strict;
 use Dancer;
 use POSIX qw(tzset);
+use Encode;
 
 $ENV{TZ} = 'Asia/Seoul';
 tzset();
@@ -17,7 +18,7 @@ post '/record' => sub {
 
   header 'Content-Type' => 'application/json';
 #  return to_json { text => 'Hello World' };
-  return '{ "version": "0.1.0", "sessionAttributes": {}, "response": { "outputSpeech": { "type": "SimpleSpeech", "values": { "type": "PlainText", "lang": "ko", "value": "You drunk a cup of water at ' . $hour . " " . $min . '" } }, "card": {}, "directives": [], "shouldEndSession": false } } ';
+  return encode_utf8( '{ "version": "0.1.0", "sessionAttributes": {}, "response": { "outputSpeech": { "type": "SimpleSpeech", "values": { "type": "PlainText", "lang": "ko", "value": "물을 드셨군요. 잘 하셨어요. ' . $hour . '시 ' . $min . '분에 물 마신 것을 기록합니다.  You drunk a cup of water at ' . $hour . " " . $min . '" } }, "card": {}, "directives": [], "shouldEndSession": false } } ' );
 };
 
 get '/api/time' => sub {
