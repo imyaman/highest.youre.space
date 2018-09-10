@@ -6,6 +6,8 @@ use Encode;
 use Dancer;
 use POSIX qw(tzset);
 
+binmode STDOUT, ':encoding(UTF-8)';
+
 $ENV{TZ} = 'Asia/Seoul';
 tzset();
 
@@ -15,11 +17,9 @@ get '/' => sub {
 
 post '/record' => sub {
   my ($sec, $min, $hour, $mday, $mon, $year, $wday, $yday, $isdst) = localtime();
-#  my $t = sprintf("%04d-%02d-%02dT%02d:%02d:%02dZ", $year+1900, $mon+1, $mday, $hour, $min, $sec);
-
   header 'Content-Type' => 'application/json; charset=utf-8';
-#  return to_json { text => 'Hello World' };
-  return encode_utf8( '{ "version": "0.1.0", "sessionAttributes": {}, "response": { "outputSpeech": { "type": "SimpleSpeech", "values": { "type": "PlainText", "lang": "ko", "value": "You drunk a cup of water at ' . $hour . " " . $min . '. 하하" } }, "card": {}, "directives": [], "shouldEndSession": false } } ' );
+# return encode_utf8( '{ "version": "0.1.0", "sessionAttributes": {}, "response": { "outputSpeech": { "type": "SimpleSpeech", "values": { "type": "PlainText", "lang": "ko", "value": "You drunk a cup of water at ' . $hour . " " . $min . '. 하하" } }, "card": {}, "directives": [], "shouldEndSession": false } } ' );
+  return '{ "version": "0.1.0", "sessionAttributes": {}, "response": { "outputSpeech": { "type": "SimpleSpeech", "values": { "type": "PlainText", "lang": "ko", "value": "You drunk a cup of water at ' . $hour . " " . $min . '. 하하" } }, "card": {}, "directives": [], "shouldEndSession": false } } ';
 };
 
 get '/api/time' => sub {
