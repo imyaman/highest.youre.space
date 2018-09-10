@@ -20,7 +20,7 @@ post '/record' => sub {
   header 'Content-Type' => 'application/json; charset=utf-8';
 # return encode_utf8( '{ "version": "0.1.0", "sessionAttributes": {}, "response": { "outputSpeech": { "type": "SimpleSpeech", "values": { "type": "PlainText", "lang": "ko", "value": "You drunk a cup of water at ' . $hour . " " . $min . '. 하하" } }, "card": {}, "directives": [], "shouldEndSession": false } } ' );
 #  return '{ "version": "0.1.0", "sessionAttributes": {}, "response": { "outputSpeech": { "type": "SimpleSpeech", "values": { "type": "PlainText", "lang": "ko", "value": "You drunk a cup of water at ' . $hour . " " . $min . '. 하하" } }, "card": {}, "directives": [], "shouldEndSession": false } } ';
-  return '{ "version": "0.1.0", "sessionAttributes": {}, "response": { "outputSpeech": { "type": "SimpleSpeech", "values": { "type": "PlainText", "lang": "ko", "value": "잘 하셨습니다. ' . $hour . '시 ' . $min . '분에 물을 마신 것을 기록합니다." } }, "card": {}, "directives": [], "shouldEndSession": false } } ';
+  return '{ "version": "0.1.0", "sessionAttributes": {}, "response": { "outputSpeech": { "type": "SimpleSpeech", "values": { "type": "PlainText", "lang": "ko", "value": "잘 하셨습니다. ' . $hour . '시 ' . $min . '분에 물을 마신 것을 기록합니다. 물 드셨으니 주무세요. 세상에서 잠을 제일 빨리 자는 사람 아세요? 이름이 이미자래요." } }, "card": {}, "directives": [], "shouldEndSession": false } } ';
 };
 
 get '/api/time' => sub {
